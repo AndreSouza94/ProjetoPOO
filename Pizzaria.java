@@ -15,11 +15,13 @@ import java.util.List;
 public class Pizzaria {
     private String nome;
     private String endereco;
-    private List<Pizza> cardapio;
+    private List<Pedido> pedidos;
     private List<Funcionario> funcionarios;
 
     public Pizzaria() {
-        this.cardapio = new ArrayList<>();
+        this.nome = nome;
+        this.endereco = endereco;
+        this.pedidos = new ArrayList<>();
         this.funcionarios = new ArrayList<>();
     }
 
@@ -39,12 +41,12 @@ public class Pizzaria {
         this.endereco = endereco;
     }
 
-    public List<Pizza> getCardapio() {
-        return cardapio;
+  public List<Pedido> getPedidos() {
+        return pedidos;
     }
 
-    public void setCardapio(List<Pizza> cardapio) {
-        this.cardapio = cardapio;
+    public void setPedidos(List<Pedido> pedidos) {
+        this.pedidos = pedidos;
     }
 
     public List<Funcionario> getFuncionarios() {
