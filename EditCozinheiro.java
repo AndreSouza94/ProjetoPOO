@@ -68,7 +68,7 @@ public class EditCozinheiro extends javax.swing.JFrame {
 
         lbTelefone.setText("TELEFONE:");
 
-        lbSub.setText("CADASTRAR FUNCIONARIO");
+        lbSub.setText("EDITAR FUNCIONARIO");
 
         ctNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -228,7 +228,7 @@ public class EditCozinheiro extends javax.swing.JFrame {
     }//GEN-LAST:event_ctExpActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new FormPrincipal().setVisible(true);
+         new ConsultFunc().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
     private void preencherCampos() {
     if (cozinheiro != null) {  

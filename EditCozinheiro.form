@@ -155,7 +155,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lbSub">
       <Properties>
-        <Property name="text" type="java.lang.String" value="CADASTRAR FUNCIONARIO"/>
+        <Property name="text" type="java.lang.String" value="EDITAR FUNCIONARIO"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="ctNome">

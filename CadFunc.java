@@ -350,62 +350,74 @@ public class CadFunc extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
     
     public void cadastrar() {
-    try {
-        if (RBatendente.isSelected()) {
-            String nome = ctNome.getText();
-            String telefone = ctTelefone.getText();
-            String turno = ctTurno.getText();
-            String setor = ctSetor.getText();
-
-            // Criando o objeto Atendente com as variáveis
-            Atendente atendente = new Atendente(nome, telefone, turno, setor);
-            BDPizz.getBDPizz().addAtendente(atendente)
- ;
-            JOptionPane.showMessageDialog(null, "Atendente cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-            limpar();
-        }
-
-        if (RBentregador.isSelected()) {
-            String nome = ctNome.getText();
-            String telefone = ctTelefone.getText();
-            String veiculo = ctVeiculo.getText();
-            String tipoHabilit = ctHabilit.getText();
-
-            Entregador entregador = new Entregador(nome, telefone, veiculo, tipoHabilit);
-            BDPizz.getBDPizz().addEntregador(entregador);
-            JOptionPane.showMessageDialog(null, "Entregador cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-        }
-
-        if (RBcozinheiro.isSelected()) {
-            String nome = ctNome.getText();
-            String telefone = ctTelefone.getText();
-            String especialidade = ctEspeci.getText();
-            int experiencia = Integer.parseInt(ctExp.getText()); // Pode lançar NumberFormatException
-
-            Cozinheiro cozinheiro = new Cozinheiro(nome, telefone, especialidade, experiencia);
-            BDPizz.getBDPizz().addCozinheiro(cozinheiro);
-            JOptionPane.showMessageDialog(null, "Cozinheiro cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
-        }
-    } catch (NumberFormatException e) {
-        // Captura exceções de formato de número
-        JOptionPane.showMessageDialog(null, "Por favor, insira um número válido para a experiência.", "Erro", JOptionPane.ERROR_MESSAGE);
-    } catch (Exception e) {
-        // Captura qualquer outra exceção
-        JOptionPane.showMessageDialog(null, "Ocorreu um erro: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+   try {
+    // Verifica se os campos obrigatórios estão vazios
+    if (ctNome.getText().trim().isEmpty() || ctTelefone.getText().trim().isEmpty()) {
+        throw new CampoVazioException("Todos os campos obrigatórios devem ser preenchidos.");
     }
+
+    // Verifica o formato do telefone (exemplo simples: deve ter 10 ou 11 dígitos)
+    String telefone = ctTelefone.getText().trim();
+    if (!telefone.matches("\\d{10,11}")) {
+        throw new TelefoneInvalidoException("O telefone deve conter 10 ou 11 dígitos.");
+    }
+
+    // Verificando qual radio button foi selecionado
+    if (RBatendente.isSelected()) {
+        String nome = ctNome.getText();
+        telefone = ctTelefone.getText();
+        String turno = ctTurno.getText();
+        String setor = ctSetor.getText();
+
+        // Criando o objeto Atendente com as variáveis
+        Atendente atendente = new Atendente(nome, telefone, turno, setor);
+        BDPizz.getBDPizz().addAtendente(atendente);  // Corrigido, removeu o `;` extra
+
+        JOptionPane.showMessageDialog(null, "Atendente cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+        limpar();
+    }
+
+    if (RBentregador.isSelected()) {
+        String nome = ctNome.getText();
+        telefone = ctTelefone.getText();
+        String veiculo = ctVeiculo.getText();
+        String tipoHabilit = ctHabilit.getText();
+
+        Entregador entregador = new Entregador(nome, telefone, veiculo, tipoHabilit);
+        BDPizz.getBDPizz().addEntregador(entregador);
+        JOptionPane.showMessageDialog(null, "Entregador cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    if (RBcozinheiro.isSelected()) {
+        String nome = ctNome.getText();
+        telefone = ctTelefone.getText();
+        String especialidade = ctEspeci.getText();
+        int experiencia = Integer.parseInt(ctExp.getText()); // Pode lançar NumberFormatException
+
+        Cozinheiro cozinheiro = new Cozinheiro(nome, telefone, especialidade, experiencia);
+        BDPizz.getBDPizz().addCozinheiro(cozinheiro);
+        JOptionPane.showMessageDialog(null, "Cozinheiro cadastrado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+    }
+} catch (NumberFormatException e) {
+    // Captura exceções de formato de número
+    JOptionPane.showMessageDialog(null, "Por favor, insira um número válido para a experiência.", "Erro", JOptionPane.ERROR_MESSAGE);
+} catch (Exception e) {
+    // Captura qualquer outra exceção
+    JOptionPane.showMessageDialog(null, "Ocorreu um erro: " + e.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
 }
-          
-    public void limpar(){
-        ctNome.setText("");
-        ctTelefone.setText("");
-        ctTurno.setText("");
-        ctSetor.setText("");
-        ctVeiculo.setText("");
-        ctHabilit.setText("");
-        ctEspeci.setText("");
-        ctExp.setText("");
-        ctNome.requestFocus();
     }
+public void limpar() {
+    ctNome.setText("");
+    ctTelefone.setText("");
+    ctTurno.setText("");
+    ctSetor.setText("");
+    ctVeiculo.setText("");
+    ctHabilit.setText("");
+    ctEspeci.setText("");
+    ctExp.setText("");
+    ctNome.requestFocus();
+}
+
     /**
      * @param args the command line arguments
      */
