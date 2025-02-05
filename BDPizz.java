@@ -10,6 +10,7 @@
 //André Faria de Souza  RA: 2101106
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class BDPizz {
     // Variável estática para o padrão Singleton
@@ -193,5 +194,68 @@ public class BDPizz {
         }
         return false;
     }
+    
+    public Atendente buscarAtendentePorNome(String nome) {
+    for (Atendente atd : atendente) {
+        if (atd.getNome().equalsIgnoreCase(nome)) {
+            return atd;
+        }
+    }
+    return null; // Retorna null se o atendente não for encontrado
+}
+    
+    public Entregador buscarEntregadorPorNome(String nome) {
+    for (Entregador ent : entregador) {
+        if (ent.getNome().equalsIgnoreCase(nome)) {
+            return ent;
+        }
+    }
+    return null; // Retorna null se o entregador não for encontrado
+}
+
+public Cozinheiro buscarCozinheiroPorNome(String nome) {
+    for (Cozinheiro coz : cozinheiro) {
+        if (coz.getNome().equalsIgnoreCase(nome)) {
+            return coz;
+        }
+    }
+    return null; // Retorna null se o cozinheiro não for encontrado
+}
+    
+      public void updateAtendente(Atendente atd) {
+    for (int i = 0; i < atendente.size(); i++) {
+        if (atendente.get(i).getNome().equalsIgnoreCase(atd.getNome())) {
+            atendente.set(i, atd);
+            JOptionPane.showMessageDialog(null, "Atendente atualizado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+    }
+    JOptionPane.showMessageDialog(null, "Atendente não encontrado!", "Erro", JOptionPane.ERROR_MESSAGE);
+}
+
+// Atualizar um Entregador na lista de entregadores
+public void updateEntregador(Entregador etg) {
+    for (int i = 0; i < entregador.size(); i++) {
+        if (entregador.get(i).getNome().equalsIgnoreCase(etg.getNome())) {
+            entregador.set(i, etg);
+            JOptionPane.showMessageDialog(null, "Entregador atualizado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+    }
+    JOptionPane.showMessageDialog(null, "Entregador não encontrado!", "Erro", JOptionPane.ERROR_MESSAGE);
+}
+
+// Atualizar um Cozinheiro na lista de cozinheiros
+public void updateCozinheiro(Cozinheiro cz) {
+    for (int i = 0; i < cozinheiro.size(); i++) {
+        if (cozinheiro.get(i).getNome().equalsIgnoreCase(cz.getNome())) {
+            cozinheiro.set(i, cz);
+            JOptionPane.showMessageDialog(null, "Cozinheiro atualizado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+    }
+    JOptionPane.showMessageDialog(null, "Cozinheiro não encontrado!", "Erro", JOptionPane.ERROR_MESSAGE);
+}
+
 }
 

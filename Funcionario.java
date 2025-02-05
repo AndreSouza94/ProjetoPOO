@@ -17,7 +17,11 @@ public class Funcionario  {
         this.telefone = telefone;
     }
 
+    public Funcionario() {
+        
+    }
 
+    
     // Métodos getters e setters para nome e telefone
     public String getNome() {
         return nome;

@@ -41,7 +41,7 @@ public class Pizzaria {
         this.endereco = endereco;
     }
 
-  public List<Pedido> getPedidos() {
+    public List<Pedido> getPedidos() {
         return pedidos;
     }
 

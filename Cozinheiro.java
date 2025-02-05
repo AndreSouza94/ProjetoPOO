@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -9,12 +12,19 @@
  */
 //André Faria de Souza  RA: 2101106
 public class Cozinheiro extends Funcionario  {
-
+    private String especialidade;
+    private int experiencia;
+    
     static boolean isSelected() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    private String especialidade;
-    private int experiencia;
+    
+     public Cozinheiro() {
+        super(); // Chama o construtor vazio da superclasse (se existir)
+        this.especialidade = "";
+        this.experiencia = 0;
+    }
+     
     public Cozinheiro(String nome, String telefone, String especialidade, int experiencia){
         super(nome,telefone);
         this.especialidade = especialidade;
@@ -40,11 +50,15 @@ public class Cozinheiro extends Funcionario  {
     }
   
   // Método para exibir dados
-    public void exibirDados() {
-        System.out.println("Nome: " + getNome()); // Supondo que getNome() esteja na classe Funcionario
-        System.out.println("Telefone: " + getTelefone()); // Supondo que getTelefone() esteja na classe Funcionario
-        System.out.println("Especialidade: " + especialidade);
-        System.out.println("Experiencia: " + experiencia);
-    }
-  
+   public void exibirDados() {
+        JOptionPane.showMessageDialog(null,
+        "Nome: " + getNome() + "\n" +
+        "Telefone: " + getTelefone() + "\n" +
+        "Especialidade: " + especialidade + "\n" +
+        "Experiência: " + experiencia + " anos",
+        "Dados do Cozinheiro",
+        JOptionPane.INFORMATION_MESSAGE
+    );
+
+   }
 }

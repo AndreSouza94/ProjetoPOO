@@ -35,6 +35,7 @@ public class ConsultFunc extends javax.swing.JFrame {
         rbAtendente = new javax.swing.JRadioButton();
         rbEntregador = new javax.swing.JRadioButton();
         rbCozinheiro = new javax.swing.JRadioButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,6 +82,13 @@ public class ConsultFunc extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Editar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -90,6 +98,8 @@ public class ConsultFunc extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btBuscar))
@@ -121,7 +131,8 @@ public class ConsultFunc extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btBuscar)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -158,6 +169,33 @@ public class ConsultFunc extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
             remover();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     if (rbAtendente.isSelected()) {
+    Atendente atendente = BDPizz.getBDPizz().consultaATD(Nome.getText().trim()); // Busca o atendente pelo nome
+    if (atendente != null) {
+        new EditAtendente(atendente).setVisible(true); // Abre a tela de edição
+    } else {
+        JOptionPane.showMessageDialog(null, "Atendente não encontrado.", "Erro", JOptionPane.ERROR_MESSAGE);
+    }
+} else if (rbEntregador.isSelected()) {
+    Entregador entregador = BDPizz.getBDPizz().consultaEntreg(Nome.getText().trim()); // Busca o entregador pelo nome
+    if (entregador != null) {
+        new EditEntregador(entregador).setVisible(true); // Abre a tela de edição
+    } else {
+        JOptionPane.showMessageDialog(null, "Entregador não encontrado.", "Erro", JOptionPane.ERROR_MESSAGE);
+    }
+} else if (rbCozinheiro.isSelected()) {
+    Cozinheiro cozinheiro = BDPizz.getBDPizz().consultaCozinheiro(Nome.getText().trim()); // Busca o cozinheiro pelo nome
+    if (cozinheiro != null) {
+        new EditCozinheiro(cozinheiro).setVisible(true); // Abre a tela de edição
+    } else {
+        JOptionPane.showMessageDialog(null, "Cozinheiro não encontrado.", "Erro", JOptionPane.ERROR_MESSAGE);
+    }
+} else {
+    JOptionPane.showMessageDialog(null, "Selecione um cargo para editar.", "Erro", JOptionPane.WARNING_MESSAGE);
+}
+    }//GEN-LAST:event_jButton1ActionPerformed
 
    public void buscar() {
     try {
@@ -297,9 +335,11 @@ public class ConsultFunc extends javax.swing.JFrame {
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Nome;
     private javax.swing.JButton btBuscar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JRadioButton rbAtendente;
