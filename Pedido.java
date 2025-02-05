@@ -15,25 +15,50 @@ import java.util.List;
 
 public class Pedido {
     private int id;
-    private int quantidade;
-    private String tamanho; // Tamanho da pizza
-    private String sabor;   // Sabor da pizza
-    private double preco;   // Preço da pizza
-    private Cliente cliente;
-    private Pagamento pagamento;
+    private String nomeCliente;
+    private String endereco;
+    private String telefone;
+    private int quantidadePizzas;
+    private String tamanho;
+    private String sabor;
+    private String formaPagamento;
+    private double valorTotal;
 
-    // Lista de sabores disponíveis
-    private static List<String> saboresDisponiveis = new ArrayList<>(Arrays.asList(
-            "calabresa", "cinco queijos", "moda da casa", "alho e oleo", "frango catupiry", "carne seca"));
+    // Construtor vazio
+    public Pedido() {}
 
-    // Construtor
-    public Pedido(int id, int quantidade, String tamanho, String sabor, Cliente cliente) {
+     // Construtor com todos os campos
+    public Pedido(int id, String nomeCliente, String endereco, String telefone, int quantidadePizzas, String tamanho, String sabor, String formaPagamento, double valorTotal) {
         this.id = id;
-        this.quantidade = quantidade;
+        this.nomeCliente = nomeCliente;
+        this.endereco = endereco;
+        this.telefone = telefone;
+        this.quantidadePizzas = quantidadePizzas;
         this.tamanho = tamanho;
         this.sabor = sabor;
-        this.cliente = cliente;
-        this.preco = calcularPreco(tamanho); // Calcula o preço com base no tamanho
+        this.formaPagamento = formaPagamento;
+        this.valorTotal = valorTotal;
+    }
+
+    // Método para calcular o valor total
+    public void calcularValorTotal() {
+        double valorPizza = 0;
+
+        // Definir o valor da pizza com base no tamanho
+        switch (tamanho) {
+            case "Pequeno":
+                valorPizza = 25.00;
+                break;
+            case "Médio":
+                valorPizza = 35.00;
+                break;
+            case "Grande":
+                valorPizza = 45.00;
+                break;
+        }
+
+        // Calcular o valor total
+        this.valorTotal = quantidadePizzas * valorPizza;
     }
 
     // Getters e Setters
@@ -45,12 +70,36 @@ public class Pedido {
         this.id = id;
     }
 
-    public int getQuantidade() {
-        return quantidade;
+    public String getNomeCliente() {
+        return nomeCliente;
     }
 
-    public void setQuantidade(int quantidade) {
-        this.quantidade = quantidade;
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public int getQuantidadePizzas() {
+        return quantidadePizzas;
+    }
+
+    public void setQuantidadePizzas(int quantidadePizzas) {
+        this.quantidadePizzas = quantidadePizzas;
     }
 
     public String getTamanho() {
@@ -59,7 +108,6 @@ public class Pedido {
 
     public void setTamanho(String tamanho) {
         this.tamanho = tamanho;
-        this.preco = calcularPreco(tamanho); // Atualiza o preço ao alterar o tamanho
     }
 
     public String getSabor() {
@@ -67,75 +115,38 @@ public class Pedido {
     }
 
     public void setSabor(String sabor) {
-         if (saboresDisponiveis.contains(sabor)) {
         this.sabor = sabor;
-    } else {
-        throw new IllegalArgumentException("Sabor não disponível: " + sabor);
-    }
-}
-
-    public double getPreco() {
-        return preco;
     }
 
-    public void setPreco(double preco) {
-        this.preco = preco;
+    public String getFormaPagamento() {
+        return formaPagamento;
     }
 
-    public Cliente getCliente() {
-        return cliente;
+    public void setFormaPagamento(String formaPagamento) {
+        this.formaPagamento = formaPagamento;
     }
 
-    public void setCliente(Cliente cliente) {
-        this.cliente = cliente;
+    public double getValorTotal() {
+        return valorTotal;
     }
 
-    public Pagamento getPagamento() {
-        return pagamento;
+    public void setValorTotal(double valorTotal) {
+        this.valorTotal = valorTotal;
     }
 
-    public void setPagamento(Pagamento pagamento) {
-        this.pagamento = pagamento;
-    }
-
-    // Métodos estáticos para gerenciar sabores disponíveis
-    public static List<String> getSaboresDisponiveis() {
-        return saboresDisponiveis;
-    }
-
-    public static void consultarSabores() {
-        System.out.println("Sabores disponíveis:");
-        for (String sabor : saboresDisponiveis) {
-            System.out.println("- " + sabor);
-        }
-    }
-
-    public static boolean alterarSabor(String saborAntigo, String novoSabor) {
-        if (saboresDisponiveis.contains(saborAntigo)) {
-            int index = saboresDisponiveis.indexOf(saborAntigo);
-            saboresDisponiveis.set(index, novoSabor); // Altera o sabor
-            return true; // Retorna verdadeiro se a alteração foi bem-sucedida
-        }
-        return false; // Retorna falso se o sabor não foi encontrado
-    }
-
-    // Método para calcular o preço com base no tamanho
-    public static double calcularPreco(String tamanho) {
-        switch (tamanho.toLowerCase()) {
-            case "pequeno":
-                return 20.00;
-            case "medio":
-                return 30.00;
-            case "big":
-                return 50.00;
-            default:
-                return 0.0; // Tamanho inválido
-        }
-    }
-
-    // Método para calcular o valor total do pedido
-    public double calcularValorTotal() {
-        return quantidade * preco;
+    @Override
+    public String toString() {
+        return "Pedido{" +
+                "id=" + id +
+                ", nomeCliente='" + nomeCliente + '\'' +
+                ", endereco='" + endereco + '\'' +
+                ", telefone='" + telefone + '\'' +
+                ", quantidadePizzas=" + quantidadePizzas +
+                ", tamanho='" + tamanho + '\'' +
+                ", sabor='" + sabor + '\'' +
+                ", formaPagamento='" + formaPagamento + '\'' +
+                ", valorTotal=" + valorTotal +
+                '}';
     }
 }
 
