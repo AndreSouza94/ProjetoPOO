@@ -7,7 +7,9 @@
  *
  * @author Andre Souza
  */
+//André Faria de Souza  RA: 2101106
 
+//Interface que define um método para exibir dados.
 public interface Exibir {
     void exibirDados();
 }

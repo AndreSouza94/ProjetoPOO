@@ -11,15 +11,17 @@ import javax.swing.JOptionPane;
  *
  * @author Andre Souza
  */
+//André Faria de Souza  RA: 2101106
 public class EditEntregador extends javax.swing.JFrame {
       private Entregador entregador;   
     /**
      * Creates new form CadFunc
      */
-    public EditEntregador(Entregador entreg) {
-        initComponents();
-        this.entregador = entreg;
-        preencherCampos();
+   public EditEntregador(Entregador entregador) {
+    initComponents();
+    this.entregador = entregador;
+    preencherCampos();
+
         
          // Preenche os campos com os dados do atendente
         ctNome.setText(entregador.getNome());
@@ -37,14 +39,12 @@ public class EditEntregador extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbCargo = new javax.swing.JLabel();
         btnCadastrar = new javax.swing.JButton();
         lbNome = new javax.swing.JLabel();
         lbTelefone = new javax.swing.JLabel();
         lbSub = new javax.swing.JLabel();
         ctNome = new javax.swing.JTextField();
         ctTelefone = new javax.swing.JTextField();
-        RBentregador = new javax.swing.JRadioButton();
         btLimpar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -53,8 +53,7 @@ public class EditEntregador extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        lbCargo.setText("Selecione o Cargo do Funcionario");
+        setTitle("Editar Entregador");
 
         btnCadastrar.setText("Editar");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -78,13 +77,6 @@ public class EditEntregador extends javax.swing.JFrame {
         ctTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ctTelefoneActionPerformed(evt);
-            }
-        });
-
-        RBentregador.setText("Entregador");
-        RBentregador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RBentregadorActionPerformed(evt);
             }
         });
 
@@ -136,9 +128,6 @@ public class EditEntregador extends javax.swing.JFrame {
                                     .addContainerGap()
                                     .addComponent(lbSub, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(lbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
                                     .addGap(10, 10, 10)
                                     .addComponent(lbNome)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -155,7 +144,6 @@ public class EditEntregador extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(RBentregador, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -179,25 +167,21 @@ public class EditEntregador extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTelefone)
                     .addComponent(ctTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(lbCargo)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 313, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 361, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btLimpar)
                             .addComponent(btnCadastrar)
                             .addComponent(jButton1))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RBentregador)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(ctVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
+                            .addComponent(jLabel3)
+                            .addComponent(ctVeiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel4)
                             .addComponent(ctHabilit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -210,10 +194,6 @@ public class EditEntregador extends javax.swing.JFrame {
     private void ctTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ctTelefoneActionPerformed
         
     }//GEN-LAST:event_ctTelefoneActionPerformed
-
-    private void RBentregadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBentregadorActionPerformed
-       
-    }//GEN-LAST:event_RBentregadorActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         editar();
@@ -236,7 +216,8 @@ public class EditEntregador extends javax.swing.JFrame {
     }//GEN-LAST:event_ctVeiculoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        new ConsultFunc().setVisible(true);
+        BDPizz.getInstance().getConsultFunc().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
     private void preencherCampos() {
         if (entregador != null) {  // Verifica se o atendente não é null antes de preencher os campos
@@ -266,7 +247,7 @@ public class EditEntregador extends javax.swing.JFrame {
             entregador.setTipohabilit(setor);
             
             // Atualiza no banco de dados
-            BDPizz.getBDPizz().updateEntregador(entregador);
+            BDPizz.getInstance().atualizarEntregador(entregador);
             
             JOptionPane.showMessageDialog(this, "Entregador atualizado com sucesso!");
             this.dispose(); // Fecha a tela após salvar
@@ -328,13 +309,12 @@ public class EditEntregador extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadFunc().setVisible(true);
+                ConsultFunc.getConsultFunc().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton RBentregador;
     private javax.swing.JButton btLimpar;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JTextField ctHabilit;
@@ -344,7 +324,6 @@ public class EditEntregador extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel lbCargo;
     private javax.swing.JLabel lbNome;
     private javax.swing.JLabel lbSub;
     private javax.swing.JLabel lbTelefone;

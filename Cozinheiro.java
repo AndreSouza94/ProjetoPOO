@@ -25,11 +25,11 @@ public class Cozinheiro extends Funcionario  {
         this.experiencia = 0;
     }
      
-    public Cozinheiro(String nome, String telefone, String especialidade, int experiencia){
+   /** public Cozinheiro(String nome, String telefone, String especialidade, int experiencia){
         super(nome,telefone);
         this.especialidade = especialidade;
         this.experiencia = experiencia;
-    }
+    }**/
 
    
 // Atributos e métodos adicionais de Cozinheiro

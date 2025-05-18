@@ -26,14 +26,7 @@ public class Atendente extends Funcionario  {
         this.setor = "";
     }
 
-    // 🔹 Construtor parametrizado
-    public Atendente(String nome, String telefone, String turno, String setor) {
-        super(nome, telefone); // Chama o construtor da superclasse (Pessoa)
-        this.turno = turno;
-        this.setor = setor;
-    }
- 
-
+    
     // Getter e Setter para o atributo turno
     public String getTurno() {
         return turno;

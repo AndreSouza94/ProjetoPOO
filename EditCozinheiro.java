@@ -11,15 +11,17 @@ import javax.swing.JOptionPane;
  *
  * @author Andre Souza
  */
+//André Faria de Souza  RA: 2101106
 public class EditCozinheiro extends javax.swing.JFrame {
      private Cozinheiro cozinheiro;   
     /**
      * Creates new form CadFunc
      */
-    public EditCozinheiro(Cozinheiro coz) {
-        this.cozinheiro = coz;
-        initComponents();
-        preencherCampos();
+    public EditCozinheiro(Cozinheiro cozinheiro) {
+    initComponents();
+    this.cozinheiro = cozinheiro;
+    preencherCampos();
+
         
          // Preenche os campos com os dados do cozinheiro
         ctNome.setText(cozinheiro.getNome());
@@ -38,14 +40,12 @@ public class EditCozinheiro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbCargo = new javax.swing.JLabel();
         btnCadastrar = new javax.swing.JButton();
         lbNome = new javax.swing.JLabel();
         lbTelefone = new javax.swing.JLabel();
         lbSub = new javax.swing.JLabel();
         ctNome = new javax.swing.JTextField();
         ctTelefone = new javax.swing.JTextField();
-        RBcozinheiro = new javax.swing.JRadioButton();
         btLimpar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -54,8 +54,7 @@ public class EditCozinheiro extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        lbCargo.setText("Selecione o Cargo do Funcionario");
+        setTitle("Editar Cozinheiro");
 
         btnCadastrar.setText("Editar");
         btnCadastrar.addActionListener(new java.awt.event.ActionListener() {
@@ -79,13 +78,6 @@ public class EditCozinheiro extends javax.swing.JFrame {
         ctTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ctTelefoneActionPerformed(evt);
-            }
-        });
-
-        RBcozinheiro.setText("Cozinheiro");
-        RBcozinheiro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RBcozinheiroActionPerformed(evt);
             }
         });
 
@@ -131,9 +123,6 @@ public class EditCozinheiro extends javax.swing.JFrame {
                                     .addContainerGap()
                                     .addComponent(lbSub, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(lbCargo, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
                                     .addGap(10, 10, 10)
                                     .addComponent(lbNome)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -149,8 +138,7 @@ public class EditCozinheiro extends javax.swing.JFrame {
                 .addGap(11, 11, 11))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(RBcozinheiro, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -158,7 +146,7 @@ public class EditCozinheiro extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ctExp, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(ctExp, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -174,20 +162,16 @@ public class EditCozinheiro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbTelefone)
                     .addComponent(ctTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(lbCargo)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 313, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 361, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btLimpar)
                             .addComponent(btnCadastrar)
                             .addComponent(jButton1))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(RBcozinheiro)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
                             .addComponent(ctEspeci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -206,11 +190,6 @@ public class EditCozinheiro extends javax.swing.JFrame {
         
     }//GEN-LAST:event_ctTelefoneActionPerformed
 
-    private void RBcozinheiroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBcozinheiroActionPerformed
-      
-       
-    }//GEN-LAST:event_RBcozinheiroActionPerformed
-
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         editar();
     }//GEN-LAST:event_btnCadastrarActionPerformed
@@ -228,7 +207,8 @@ public class EditCozinheiro extends javax.swing.JFrame {
     }//GEN-LAST:event_ctExpActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         new ConsultFunc().setVisible(true);
+         BDPizz.getInstance().getConsultFunc().setVisible(true);
+          this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
     private void preencherCampos() {
     if (cozinheiro != null) {  
@@ -269,7 +249,7 @@ public class EditCozinheiro extends javax.swing.JFrame {
             return;
         }
 
-        // Verifica se o objeto cozinheiro não é nulo
+        // Verifica se o objeto não é nulo
         if (cozinheiro == null) {
             JOptionPane.showMessageDialog(null, "Cozinheiro não encontrado!", "Erro", JOptionPane.ERROR_MESSAGE);
             return;
@@ -282,7 +262,7 @@ public class EditCozinheiro extends javax.swing.JFrame {
         cozinheiro.setExperiencia(experiencia);
 
         // Atualiza no banco de dados
-        BDPizz.getBDPizz().updateCozinheiro(cozinheiro);
+        BDPizz.getInstance().atualizarCozinheiro(cozinheiro);
 
         // Mensagem de sucesso
         JOptionPane.showMessageDialog(null, "Cozinheiro atualizado com sucesso!", "Sucesso", JOptionPane.INFORMATION_MESSAGE);
@@ -292,7 +272,7 @@ public class EditCozinheiro extends javax.swing.JFrame {
     }
 }
           
-    public void limpar(){
+    public void limpar(){ // limpa os campos e volta pro ctNome
         ctNome.setText("");
         ctTelefone.setText("");
         ctEspeci.setText("");
@@ -345,13 +325,12 @@ public class EditCozinheiro extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CadFunc().setVisible(true);
+                ConsultFunc.getConsultFunc().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JRadioButton RBcozinheiro;
     private javax.swing.JButton btLimpar;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JTextField ctEspeci;
@@ -361,7 +340,6 @@ public class EditCozinheiro extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel lbCargo;
     private javax.swing.JLabel lbNome;
     private javax.swing.JLabel lbSub;
     private javax.swing.JLabel lbTelefone;

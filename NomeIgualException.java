@@ -10,8 +10,8 @@
 //André Faria de Souza  RA: 2101106
 
 //Construtor da exceção que recebe um mensagem de erro
-public class TelefoneInvalidoException extends Exception { 
-    public TelefoneInvalidoException(String mensagem) {
+public class NomeIgualException  extends Exception{
+     public NomeIgualException(String mensagem) {
         super(mensagem);
     }
 }

@@ -8,13 +8,12 @@
  * @author Andre Souza
  */
 //André Faria de Souza  RA: 2101106
-//import static Pizza.getSaboresDisponiveis;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class Pedido {
-    private int id;
+    
     private String nomeCliente;
     private String endereco;
     private String telefone;
@@ -28,8 +27,8 @@ public class Pedido {
     public Pedido() {}
 
      // Construtor com todos os campos
-    public Pedido(int id, String nomeCliente, String endereco, String telefone, int quantidadePizzas, String tamanho, String sabor, String formaPagamento, double valorTotal) {
-        this.id = id;
+   /** public Pedido(String nomeCliente, String endereco, String telefone, int quantidadePizzas, String tamanho, String sabor, String formaPagamento, double valorTotal) {
+        
         this.nomeCliente = nomeCliente;
         this.endereco = endereco;
         this.telefone = telefone;
@@ -38,7 +37,7 @@ public class Pedido {
         this.sabor = sabor;
         this.formaPagamento = formaPagamento;
         this.valorTotal = valorTotal;
-    }
+    }**/
 
     // Método para calcular o valor total
     public void calcularValorTotal() {
@@ -61,14 +60,7 @@ public class Pedido {
         this.valorTotal = quantidadePizzas * valorPizza;
     }
 
-    // Getters e Setters
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+   
 
     public String getNomeCliente() {
         return nomeCliente;
@@ -135,9 +127,8 @@ public class Pedido {
     }
 
     @Override
-    public String toString() {
+    public String toString() {  // Sobreescrita
         return "Pedido{" +
-                "id=" + id +
                 ", nomeCliente='" + nomeCliente + '\'' +
                 ", endereco='" + endereco + '\'' +
                 ", telefone='" + telefone + '\'' +

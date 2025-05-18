@@ -27,11 +27,11 @@ public class Entregador extends Funcionario{
     }
 
     
-    public Entregador(String nome, String telefone, String veiculo, String tipoHabilit){
+   /** public Entregador(String nome, String telefone, String veiculo, String tipoHabilit){
         super(nome,telefone);
         this.veiculo = veiculo;
         this.tipoHabilit = tipoHabilit;
-    }
+    }**/
 
     public String getVeiculo() {
         return veiculo;
